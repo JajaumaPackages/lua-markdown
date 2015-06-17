@@ -3,7 +3,7 @@
 
 Name:		lua-markdown
 Version:	0.32
-Release:	6%{?dist}
+Release:	7%{?dist}
 BuildArch:	noarch
 Summary:	Markdown module for Lua
 License:	MIT
@@ -55,6 +55,9 @@ lua markdown.lua -t
 
 
 %changelog
+* Wed Jun 17 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.32-7
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
+
 * Fri Jan 16 2015 Tom Callaway <spot@fedoraproject.org> - 0.32-6
 - rebuild for lua 5.3
 
