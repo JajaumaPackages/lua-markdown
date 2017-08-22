@@ -1,9 +1,9 @@
-%global luaver 5.3
+%{!?luaver: %global luaver %(lua -e "print(string.sub(_VERSION, 5))")}
 %global luapkgdir %{_datadir}/lua/%{luaver}
 
 Name:		lua-markdown
 Version:	0.32
-Release:	10%{?dist}
+Release:	11%{?dist}
 BuildArch:	noarch
 Summary:	Markdown module for Lua
 License:	MIT
@@ -24,7 +24,9 @@ easy to read text format to well-formatted HTML.
 %setup -c -T
 cp -av %{SOURCE0} .
 cp -av %{SOURCE1} .
+%if 0%{?fedora}
 %patch0 -p1 -b .lua-52
+%endif
 
 
 %build
@@ -55,6 +57,9 @@ lua markdown.lua -t
 
 
 %changelog
+* Tue Aug 22 2017 Jajauma's Packages <jajauma@yandex.ru> - 0.32-11
+- Skip lua-markdown-0.32-lua-5.2.patch on RHEL
+
 * Wed Jul 26 2017 Fedora Release Engineering <releng@fedoraproject.org> - 0.32-10
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
 
